@@ -3,30 +3,30 @@ import aws_cdk as cdk
 from constructs_package.constants import AwsAccountId
 from constructs_package.constants import AwsRegion
 from constructs_package.constants import AwsStage
-from infra.stack import PlatformStack
+from infra.stack import FirewallStack
 
 
 app = cdk.App()
 
-PlatformStack(
+FirewallStack(
     scope=app,
-    id=f"Platform-{AwsStage.SANDBOX}",
+    id=f"Firewall-{AwsStage.SANDBOX}",
     env=cdk.Environment(
         account=AwsAccountId.SANDBOX, region=AwsRegion.US_EAST_1
     ),
 )
 
-PlatformStack(
+FirewallStack(
     scope=app,
-    id=f"Platform-{AwsStage.STAGING}",
+    id=f"Firewall-{AwsStage.STAGING}",
     env=cdk.Environment(
         account=AwsAccountId.STAGING, region=AwsRegion.US_EAST_1
     ),
 )
 
-PlatformStack(
+FirewallStack(
     scope=app,
-    id=f"Platform-{AwsStage.PRODUCTION}",
+    id=f"Firewall-{AwsStage.PRODUCTION}",
     env=cdk.Environment(
         account=AwsAccountId.PRODUCTION, region=AwsRegion.US_EAST_1
     ),
