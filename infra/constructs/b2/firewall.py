@@ -45,5 +45,5 @@ class B2CloudfrontFirewall(Construct):
             id="WebAclArn",
             string_value=web_acl.web_acl_arn,
             description="Web Acl Arn for Cloudfront Waf with 2k rate limit",
-            parameter_name="/platform/firewall/cloudfront-web-acl/arn",
+            parameter_name="/firewall/cloudfront-web-acl/arn",
         )
