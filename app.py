@@ -8,22 +8,7 @@ from infra.stack import FirewallStack
 
 app = cdk.App()
 
-FirewallStack(
-    scope=app,
-    id=f"Firewall-{AwsStage.SANDBOX}",
-    env=cdk.Environment(
-        account=AwsAccountId.SANDBOX, region=AwsRegion.US_EAST_1
-    ),
-)
-
-FirewallStack(
-    scope=app,
-    id=f"Firewall-{AwsStage.STAGING}",
-    env=cdk.Environment(
-        account=AwsAccountId.STAGING, region=AwsRegion.US_EAST_1
-    ),
-)
-
+# We only need Firewall in production. All other envs are in a private subnet.
 FirewallStack(
     scope=app,
     id=f"Firewall-{AwsStage.PRODUCTION}",
