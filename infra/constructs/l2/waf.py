@@ -41,9 +41,7 @@ class WebAclAwsRule(wafv2.CfnWebACL.RuleProperty):
         super().__init__(
             name=f"AWS-{name}",
             priority=priority,
-            override_action=wafv2.CfnWebACL.OverrideActionProperty(
-                none={}
-            ),
+            override_action=wafv2.CfnWebACL.OverrideActionProperty(none={}),
             visibility_config=wafv2.CfnWebACL.VisibilityConfigProperty(
                 cloud_watch_metrics_enabled=True,
                 metric_name=f"AWS-{name}",
@@ -51,9 +49,7 @@ class WebAclAwsRule(wafv2.CfnWebACL.RuleProperty):
             ),
             statement=wafv2.CfnWebACL.StatementProperty(
                 managed_rule_group_statement=wafv2.CfnWebACL.ManagedRuleGroupStatementProperty(
-                    excluded_rules=[
-                        {"name": rule_name} for rule_name in excluded_rules
-                    ],
+                    excluded_rules=[{"name": rule_name} for rule_name in excluded_rules],
                     name=name,
                     vendor_name="AWS",
                 )

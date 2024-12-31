@@ -12,9 +12,7 @@ app = cdk.App()
 FirewallStack(
     scope=app,
     id=f"Firewall-{AwsStage.PRODUCTION}",
-    env=cdk.Environment(
-        account=AwsAccountId.PRODUCTION, region=AwsRegion.US_EAST_1
-    ),
+    env=cdk.Environment(account=AwsAccountId.PRODUCTION, region=AwsRegion.US_EAST_1),
 )
 
 app.synth()
